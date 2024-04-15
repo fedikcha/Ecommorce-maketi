@@ -175,8 +175,177 @@ select:-webkit-autofill:focus{
 }
 
 
+/* Button */
+.button {
+  padding: 0;
+  border: 0;
+  background-color: var(--accent-color);
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: bold;
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+}
+.button:hover{
+  background-color: var(--accent-color-hover);
+}
+.button:active{
+  transform: translateY(2px);
+}
+
+.button--block{
+  display: flex;
+  width: 100%;
+}
+
+.button--wide{
+  max-width: 272px;
+  display: flex;
+}
+
+.button__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 22px 20px 18px;
+}
+
+.button__prepend {
+  margin-right: 16px;
+}
+
+
+/* Shopping-cart-prodacts */
+.shopping-cart-products {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.shopping-cart-products__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+
+/* Item-shopping-cart-products */
+.item-shopping-cart-products {
+  display: flex;
+  align-items: flex-start;
+}
+
+.item-shopping-cart-products__img {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.item-shopping-cart-products__info {
+  flex-grow: 1;
+  margin-right: 18px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.item-shopping-cart-products__subtotal{
+  color: var(--text-color-dark);
+}
+
+.item-shopping-cart-products__name{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+.item-shopping-cart-products__remove-button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  align-self: center;
+  color: #c3cad9;
+  cursor: pointer;
+}
+.item-shopping-cart-products__remove-button:hover{
+  color: var(--text-color-dark);
+}
+.item-shopping-cart-products__remove-button:active{
+  opacity: 0.6;
+}
+
+.item-shopping-cart-products__remove-icon{
+  width: 14px;
+  height: 16px;
+  display: block;
+}
+
+
+
+/* shopping-cart */
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 256px;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.shopping-cart--modal {
+  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.503143);
+}
+
+.shopping-cart__header {
+  padding: 24px 24px 27px;
+  border-bottom: 1px solid var(--divider-bg);
+}
+
+.shopping-cart__title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--text-color-dark);
+}
+
+.shopping-cart__inner {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.shopping-cart__empty{
+  display: none;
+}
+
+.shopping-cart--empty .shopping-cart__empty{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.shopping-cart--empty .shopping-cart__content{
+  display: none;
+}
+
+.shopping-cart__products{
+  margin-bottom: 24px;
+}
+
+
 /* site-header */
 .site-header__container {
+  position: relative;
   border-bottom: 1px solid var(--divider-bg);
   display: flex;
   align-items: center;
@@ -221,6 +390,10 @@ select:-webkit-autofill:focus{
   color: #fff;
 }
 
+.site-header--cart--empty .site-header__cart-product-count{
+  display: none;
+}
+
 .site-header__cart-icon {
   width: 22px;
   height: 20px;
@@ -238,10 +411,25 @@ select:-webkit-autofill:focus{
 .site-header__profile-link:hover{
   border-color: var(--accent-color);
 }
+.site-header__profile-link:active{
+  opacity: 0.6;
+}
 
 .site-header__profile-avatar {
   width: 50px;
   height: 50px;
+}
+
+.site-header__cart-modal{
+  display: none;
+}
+
+.site-header__cart-modal--open {
+  position: absolute;
+  right: -76px;
+  display: block;
+  top: 94px;
+  width: 360px;
 }
 
 
@@ -253,6 +441,8 @@ select:-webkit-autofill:focus{
 
 
 
+/* shopping-cart shopping-cart--modal yonma yon class ga .shopping-cart--empty class ni qo'shsa rasm matnlarni olib tashlaydi, shopping-cart--empty olib tashlansa rasmlar o'z joyiga qaytadi */
+/* 2. site-header--cart class ga site-header--cart--empty klasni yonma yon joylashtirsa savatchadagi uchni olib tashlaydi site-header--cart--empty olib tashlansa 3 soni chiqadi */
 
 
 
