@@ -1,5 +1,7 @@
 const modifiers = {
-  imgThumbnailActive: `img-shomcase__thumbnail--active`
+  siteHeadrerCartModalOpen: `site-header__cart-modal--open`,
+  imgThumbnailActive: `img-shomcase__thumbnail--active`,
+  lightboxOpen: `lightbox--open`
 };
 // Shopping cart modal
 // Savatchani ustiga bosilsa pastida hariq qilish sonlari chiqadi
@@ -10,7 +12,7 @@ if (elSiteHeaderCartLink) {
   elSiteHeaderCartLink.addEventListener(`click`, function (evt) {
     evt.preventDefault();
 
-    elSiteHeaderCartModal.classList.toggle(`site-header__cart-modal--open`)
+    elSiteHeaderCartModal.classList.toggle(modifiers.siteHeadrerCartModalOpen)
   })
 }
 
@@ -36,3 +38,22 @@ elsImgShowcaseThubnailButton.forEach(function (elButton) {
     elImgShovcaseActiveImg.srcset = `${elButton.dataset.imgShowcaseBig} 1x, ${elButton.dataset.imgShowcaseRetina} 2x`;
   });
 });
+
+
+// Lightbox
+const elLightbox = document.querySelector(`.lightbox`);
+const elLightboxToggler = document.querySelector(`.js-lightbox-toggler`);
+const elLightboxClose = document.querySelector(`.js-lightbox-close`);
+
+
+if (elLightboxToggler) {
+  elLightboxToggler.addEventListener(`click`, function() {
+    elLightbox.classList.add(modifiers.lightboxOpen)
+  });
+}
+
+if (elLightboxClose) {
+  elLightboxClose.addEventListener(`click`, function() {
+    elLightbox.classList.remove(modifiers.lightboxOpen)
+  });
+}
